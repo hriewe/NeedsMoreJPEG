@@ -11,7 +11,7 @@ image = Image.open(sys.argv[1])
 
 # Boost saturation
 enhanced = ImageEnhance.Color(image)
-SaturationBoost = enhanced.enhance(7)
+SaturationBoost = enhanced.enhance(4)
 
 # Boost contrast
 enhanced = ImageEnhance.Contrast(SaturationBoost)
@@ -20,4 +20,4 @@ ContrastBoost = enhanced.enhance(1)
 # Sharpen
 Sharpen = ContrastBoost.filter(ImageFilter.SHARPEN)
 
-Sharpen.save('NeedsMore.jpeg', quality=15)
+Sharpen.save('NeedsMore.jpeg', quality=5)
