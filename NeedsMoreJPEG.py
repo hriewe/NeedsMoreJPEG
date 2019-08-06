@@ -6,7 +6,18 @@
 from PIL import Image, ImageEnhance, ImageFilter
 import sys
 
+# Open image
 image = Image.open(sys.argv[1])
+
+# Boost saturation
 enhanced = ImageEnhance.Color(image)
-image2 = enhanced.enhance(7)
-image2.save('new.jpeg', quality=12)
+SaturationBoost = enhanced.enhance(7)
+
+# Boost contrast
+enhanced = ImageEnhance.Contrast(SaturationBoost)
+ContrastBoost = enhanced.enhance(1)
+
+# Sharpen
+Sharpen = ContrastBoost.filter(ImageFilter.SHARPEN)
+
+Sharpen.save('NeedsMore.jpeg', quality=15)
